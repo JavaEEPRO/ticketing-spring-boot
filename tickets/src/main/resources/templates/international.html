@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{settings.title} ">Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+</head>
+<body>
+hello returned from international test base!
+<h2>
+    <span th:text="'Message: ' + #{welcome.message}"></span>
+</h2>
+<br/><br/>
+<div id="contents"></div>
+<div class="lead">
+<strong>Name of Event:</strong>
+<span th:text="${eventName}"></span>
+</div>
+<br/><br/>
+<h1>thymeleaf injection:</h1>
+<br/>
+<h1 th:text="#{greeting}"></h1>
+
+<span th:text="#{lang.change}"></span>:
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{lang.eng}"></option>
+    <option value="fr" th:text="#{lang.fr}"></option>
+    <option value="ua" th:text="#{lang.ua}"></option>
+    <option value="ru" th:text="#{lang.ru}"></option>
+</select>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption !== ''){
+                window.location.replace('international?lang=' + selectedOption);
+            }
+        });
+    });
+</script>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js">
+</script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js">
+</script>
+
+<script type="text/babel">
+    var app = new Vue({
+        el: '#contents'
+    });
+</script>
+</html>

@@ -1,0 +1,1 @@
+try to read me for test! i am located in public resources folder!
